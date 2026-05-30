@@ -71,7 +71,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 100, damping: 15 },
+    transition: { type: 'spring' as const, stiffness: 100, damping: 15 },
   },
 };
 
@@ -83,7 +83,7 @@ const cardVariants = {
     rotateY: 0,
     transition: {
       delay: i * 0.15,
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 80,
       damping: 15,
     },

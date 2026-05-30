@@ -5,68 +5,58 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useIn
 import { FiGithub, FiExternalLink, FiFolder } from 'react-icons/fi';
 import styles from './Projects.module.css';
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  category: string;
+  emoji: string;
+  github: string;
+  live?: string;
+  color: string;
+}
+
+const projects: Project[] = [
   {
-    title: 'Cloud Deploy Platform',
-    description: 'A self-hosted PaaS built with Docker that automates containerized app deployments with CI/CD pipeline integration.',
-    tags: ['Docker', 'Node.js', 'GitHub Actions', 'Nginx'],
-    category: 'devops',
-    emoji: '🚀',
-    github: '#',
-    live: '#',
+    title: 'EchoRTC',
+    description: 'Real-time WebRTC video conferencing app with screen sharing, chat, Dockerized deployment, and scalable SFU architecture using mediasoup.',
+    tags: ['React', 'TypeScript', 'Node.js', 'WebRTC', 'Socket.IO', 'mediasoup', 'Docker'],
+    category: 'fullstack',
+    emoji: '📹',
+    github: 'https://github.com/mitesh1803/EchoRTC',
     color: '#6c63ff',
   },
   {
-    title: 'DevChat — Real-Time Messenger',
-    description: 'Full-stack chat app with WebSocket-based real-time messaging, auth, typing indicators, and file sharing.',
-    tags: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+    title: 'commit-gen',
+    description: 'AI-powered git commit message generator that analyzes your staged changes and crafts meaningful commit messages using the Gemini API.',
+    tags: ['TypeScript', 'Node.js', 'Gemini API'],
     category: 'fullstack',
-    emoji: '💬',
-    github: '#',
-    live: '#',
+    emoji: '🤖',
+    github: 'https://github.com/mitesh1803/commit-gen',
     color: '#00d4aa',
   },
   {
-    title: 'InfraWatch Dashboard',
-    description: 'Server monitoring dashboard with Prometheus metrics visualization, alerting, and resource tracking.',
-    tags: ['React', 'Grafana', 'Prometheus', 'Docker'],
-    category: 'devops',
-    emoji: '📊',
-    github: '#',
+    title: 'shrt.ly',
+    description: 'URL shortener service with a companion Chrome extension for quick link shortening directly from your browser.',
+    tags: ['TypeScript', 'Node.js'],
+    category: 'fullstack',
+    emoji: '🔗',
+    github: 'https://github.com/mitesh1803/shrt.ly',
     color: '#ff6b9d',
   },
   {
-    title: 'TaskFlow — Project Manager',
-    description: 'Kanban-style project management tool with drag-and-drop, team collaboration, and sprint tracking.',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
-    category: 'fullstack',
-    emoji: '📋',
-    github: '#',
-    live: '#',
+    title: 'Wallet Payment API',
+    description: 'Wallet & payment REST API with full transaction support, balance management, and secure fund transfers between users.',
+    tags: ['Node.js', 'Express', 'MongoDB'],
+    category: 'backend',
+    emoji: '💳',
+    github: 'https://github.com/mitesh1803/Wallet-payment-api',
     color: '#ffbd2e',
   },
-  {
-    title: 'K8s Cluster Provisioner',
-    description: 'Terraform + Ansible automation for spinning up production-ready Kubernetes clusters on AWS.',
-    tags: ['Terraform', 'Ansible', 'AWS', 'Kubernetes'],
-    category: 'devops',
-    emoji: '⚙️',
-    github: '#',
-    color: '#6c63ff',
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'This very site! Built with Next.js, Framer Motion, and CSS modules. Performance-optimized and fully responsive.',
-    tags: ['Next.js', 'Framer Motion', 'TypeScript', 'CSS Modules'],
-    category: 'fullstack',
-    emoji: '🌐',
-    github: '#',
-    live: '#',
-    color: '#00d4aa',
-  },
+
 ];
 
-const filters = ['All', 'Full-Stack', 'DevOps'];
+const filters = ['All', 'Full-Stack', 'Backend'];
 
 function TiltCard({ children, color }: { children: React.ReactNode; color: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -117,7 +107,7 @@ export default function Projects() {
   const filtered = projects.filter((p) => {
     if (activeFilter === 'All') return true;
     if (activeFilter === 'Full-Stack') return p.category === 'fullstack';
-    return p.category === 'devops';
+    return p.category === 'backend';
   });
 
   return (
