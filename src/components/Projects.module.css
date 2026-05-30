@@ -1,0 +1,132 @@
+.bgLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.filterBtn {
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  position: relative;
+  z-index: 1;
+}
+
+.filterBtn:hover {
+  color: var(--text-primary);
+}
+
+.filterActive {
+  color: var(--text-primary);
+}
+
+.filterIndicator {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  background: rgba(108, 99, 255, 0.1);
+  border: 1px solid var(--border-color);
+  z-index: -1;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.projectCard {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 280px;
+}
+
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.projectEmoji {
+  font-size: 2rem;
+  display: inline-block;
+  cursor: default;
+}
+
+.projectLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.projectLink {
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.projectContent {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.projectFolder {
+  margin-bottom: 12px;
+}
+
+.projectTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  transition: color var(--transition-fast);
+}
+
+.projectCard:hover .projectTitle {
+  color: var(--accent-primary);
+}
+
+.projectDesc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .projectGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
+}
