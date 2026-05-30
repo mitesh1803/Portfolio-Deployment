@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FiSend, FiMail, FiMapPin, FiGithub, FiLinkedin, FiTwitter, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
+import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
 
 const containerVariants = {
@@ -32,12 +33,25 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
-    // Simulate form submission
-    setTimeout(() => {
+
+    try {
+      await emailjs.send(
+        'service_gifaur9',
+        'template_l90lc5i',
+        {
+          from_name: formState.name,
+          from_email: formState.email,
+          message: formState.message,
+        },
+        '2q8leAdlP3bzii_mW'
+      );
       setStatus('success');
       setFormState({ name: '', email: '', message: '' });
       setTimeout(() => setStatus('idle'), 4000);
-    }, 1500);
+    } catch {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -79,7 +93,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className={styles.infoTitle}>Email</h4>
-                  <p className={styles.infoValue}>mitesh@example.com</p>
+                  <p className={styles.infoValue}>patilmitesh1801@gmail.com</p>
                 </div>
               </motion.div>
               <motion.div
@@ -101,9 +115,9 @@ export default function Contact() {
               <h4 className={styles.socialTitle}>Find me on</h4>
               <div className={styles.socialLinks}>
                 {[
-                  { icon: <FiGithub size={20} />, label: 'GitHub', href: 'https://github.com/mitesh', color: '#f0f0f5' },
-                  { icon: <FiLinkedin size={20} />, label: 'LinkedIn', href: 'https://linkedin.com/in/mitesh', color: '#0077b5' },
-                  { icon: <FiTwitter size={20} />, label: 'Twitter', href: 'https://twitter.com/mitesh', color: '#1da1f2' },
+                  { icon: <FiGithub size={20} />, label: 'GitHub', href: 'https://github.com/mitesh1803', color: '#f0f0f5' },
+                  { icon: <FiLinkedin size={20} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mitesh-patil-242b67258', color: '#0077b5' },
+                  { icon: <FiTwitter size={20} />, label: 'X', href: 'https://x.com/miteshpatil1803', color: '#1da1f2' },
                 ].map((s) => (
                   <motion.a
                     key={s.label}

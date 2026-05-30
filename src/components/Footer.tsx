@@ -42,9 +42,9 @@ export default function Footer() {
             <h4 className={styles.footerHeading}>Connect</h4>
             <div className={styles.socialIcons}>
               {[
-                { icon: <FiGithub size={18} />, href: 'https://github.com/mitesh', label: 'GitHub' },
-                { icon: <FiLinkedin size={18} />, href: 'https://linkedin.com/in/mitesh', label: 'LinkedIn' },
-                { icon: <FiTwitter size={18} />, href: 'https://twitter.com/mitesh', label: 'Twitter' },
+                { icon: <FiGithub size={18} />, href: 'https://github.com/mitesh1803', label: 'GitHub' },
+                { icon: <FiLinkedin size={18} />, href: 'https://www.linkedin.com/in/mitesh-patil-242b67258', label: 'LinkedIn' },
+                { icon: <FiTwitter size={18} />, href: 'https://x.com/miteshpatil1803', label: 'X' },
               ].map((s) => (
                 <motion.a
                   key={s.label}

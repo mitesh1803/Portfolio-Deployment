@@ -199,9 +199,9 @@ export default function Hero() {
           transition={{ delay: 2.2 }}
         >
           {[
-            { icon: <FiGithub size={20} />, href: 'https://github.com/mitesh', label: 'GitHub' },
-            { icon: <FiLinkedin size={20} />, href: 'https://linkedin.com/in/mitesh', label: 'LinkedIn' },
-            { icon: <FiMail size={20} />, href: 'mailto:mitesh@example.com', label: 'Email' },
+            { icon: <FiGithub size={20} />, href: 'https://github.com/mitesh1803', label: 'GitHub' },
+            { icon: <FiLinkedin size={20} />, href: 'https://www.linkedin.com/in/mitesh-patil-242b67258', label: 'LinkedIn' },
+            { icon: <FiMail size={20} />, href: 'mailto:patilmitesh1801@gmail.com', label: 'Email' },
           ].map((s, i) => (
             <motion.a
               key={s.label}
