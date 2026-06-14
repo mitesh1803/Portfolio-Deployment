@@ -102,7 +102,7 @@ export default function Hero() {
           transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
         >
           <span className={styles.statusDot} />
-          Looking for Internships
+          Looking for Opportunities
         </motion.div>
 
         {/* Animated title — letter by letter */}

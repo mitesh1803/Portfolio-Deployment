@@ -99,6 +99,13 @@
   background: rgba(108, 99, 255, 0.05);
 }
 
+.mobileResumeBtn {
+  display: block;
+  margin: 16px 24px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 768px) {
   .desktopLinks {
     display: none;

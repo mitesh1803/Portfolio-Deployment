@@ -86,7 +86,7 @@ export default function Navbar() {
             </motion.a>
           ))}
           <motion.a
-            href="/resume.pdf"
+            href="./mitesh_resume_no_photo.pdf"
             className={`btn btn--primary ${styles.resumeBtn}`}
             target="_blank"
             initial={{ opacity: 0, scale: 0.8 }}
